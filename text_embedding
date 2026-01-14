@@ -1,0 +1,12 @@
+@dataclass(frozen=True)
+class PipelineConfig:
+    data_dirs: Tuple[str, ...]           # 로컬 데이터 폴더들(각 폴더 안에 *.json)
+    out_root: str = ""                   # 출력 루트 (out_root/source_folder/*.npy + metadata.csv)
+
+    model_name: str = "beomi/KcELECTRA-base-v2022"
+    max_len: int = 128
+    batch_size: int = 32
+
+    text_keys: Tuple[str, ...] = ("text", "utterance", "transcript", "sentence", "content")
+    recursive: bool = False
+    metadata_csv_name: str = "metadata.csv"    
